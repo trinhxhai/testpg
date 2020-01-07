@@ -1,0 +1,32 @@
+
+<%= form_with model: @cfacc, local: true do |form| %>
+ 
+  <% if @cfacc.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@cfacc.errors.count, "error") %> prohibited
+        this codeforces account from being saved:
+      </h2>
+      <ul>
+        <% @cfacc.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label "User name" %><br>
+    <%= form.text_field :username %>
+  </p>
+ 
+  <p>
+    <%= form.label "Real name" %><br>
+    <%= form.text_field :realname %>
+  </p>
+ 
+  <p>
+    <%= form.submit "Submit" %>
+  </p>
+ 
+<% end %>

@@ -1,0 +1,26 @@
+
+
+<%= link_to 'New user', new_cfacc_path %>
+
+
+<h1>Listing User</h1>
+ 
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Realname</th>
+    <th></th>
+  </tr>
+ 
+  <% @cfaccs.each do |acc| %>
+    <tr>
+      <td><%= acc.username %></td>
+      <td><%= acc.realname %></td>
+      <td><%= link_to 'Show', cfacc_path(acc) %></td>
+      <td><%= link_to 'Edit', edit_cfacc_path(acc) %></td>
+      <td><%= link_to 'Destroy', cfacc_path(acc),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
