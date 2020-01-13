@@ -1,12 +1,10 @@
-// Place all the styles related to the Cfaccs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+
 * {
     font-family: 'lato', sans-serif;
 }
 
 #header h1 {
-    border: 1px solid black;
+    border: 1px solid #ccdbe3;
 }
 
 
@@ -59,14 +57,19 @@
 
 #ranking_table th {
     background-color: #68cdfc;
+    border: 1px solid #ccdbe3;
 }
 
 #ranking_table td {
     background-color: #ffffff;
+    
+}
+#ranking_table td {
+    border-bottom: 0.75px solid #ccdbe3;   
 }
 
-#ranking_table th,
-td {
+
+#ranking_table th,td {
     padding: 20px 40px;
     text-align: left;
 }
@@ -75,14 +78,21 @@ td {
     border: none;
 }
 
+#ranking_table td:first-child{
+   
+    font-weight: bold;
 
-/*Sort*/
+
+}
+#ranking_table td:first-child :hover{
+
+}
 
 #sort_by_rating:hover {
     cursor: pointer;
     background-color:#0BAAD4;
     color:white;
-     transition: 0.25s;
+    transition: 0.25s;
 }
 
 #sort_by_subs:hover {

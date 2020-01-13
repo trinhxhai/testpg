@@ -1,7 +1,128 @@
-hi i'm show 
-<br>
-username: <%= @cfacc[:username] %> <br>
-realname: <%= @cfacc.realname %>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
 
-<%= link_to 'Rank Table',cfaccs_path %>
-<%= link_to 'Edit', edit_cfacc_path(@cfacc) %>
+</head>
+
+<body>
+	<%= stylesheet_link_tag "chart_bar.css" %>
+	
+	<%= stylesheet_link_tag "show_cfacc.css" %>
+
+	
+
+	<div id = 'user_info'>
+		<%= image_tag("add_user.png",id: 'user_img') %>
+		<div id="user_content">
+			<h2> User name: <span id="user_name"><%= @cfacc[:username] %></span> </h2>
+			<b>Real name :</b> <%= @cfacc.realname %><br>
+			<b>Rating :</b> <span id="rating"> <%= @cfacc[:rating] %> </span> (max: <span id="m_rating"><%= @cfacc.m_rating %></span>)<br>
+			<b>Rank :</b> <span id= "rank"> <%= @cfacc.rank.capitalize %> </span>(max: <span id= "m_rank"> <%= @cfacc.m_rank.capitalize %> </span>)<br>
+			<b>Max rating problem (solved) : </b><%= @maxRatingProb %>	<br>
+		</div>
+		<%= link_to image_tag("edit.png" ,border: 0), edit_cfacc_path(@cfacc), id: 'linkto_edit'  %>
+	</div>
+
+
+
+	<div id="right_bar">
+		<%= link_to image_tag("unnamed.png" ,border: 0), cfaccs_path ,id: 'linkto_ranktable'  %>
+		<a href="#chart_accs_wrongs">Accs/Wro</a>
+		<a href="#piechart">Tags</a>
+		<a href="#contest_table">Cont</a>
+		<a href="#submissions_table">Subs</a>
+		<a href="#user_info">Top</a>
+	</div>
+
+	<% @analy_aw.each do |year,months| %>
+		<%= content_tag :div, class: "analy_information_year", data: {temp: year} do %>
+			<% months.each do |month,val| %>
+					<%= content_tag :div, class: "analy_information_month", data: {temp: month} do %>
+						<%= content_tag :div, class: "analy_info_accs_wrongs", data: {temp: val[0]} do %>
+						<% end %>
+						<%= content_tag :div, class: "analy_info_accs_wrongs", data: {temp: val[1]} do %>
+						<% end %>
+					<% end %>
+			<% end %>
+		<% end %>
+	<% end %>
+	
+	<div id="chart_accs_wrongs">
+		<div id="explain_chart">
+		Accepted:<div id= "explain_acpt"></div>
+		<br>
+		Wrongs: <div id= "explain_wrong"></div>
+	</div>
+	</div>
+
+	<%= content_tag :div, class: "analy_tags", data: {temp: tag} do %>
+	<% @analy_tags.each do |tag,times| %>
+		<%= content_tag :div, class: "analy_tag_name", data: {temp: tag} do %>
+			<%= content_tag :div, class: "analy_tag_times", data: {temp: times} do %>
+			<% end %>
+		<% end %>
+	<% end %>
+	<% end %>
+
+	<div id="piechart"></div>
+
+	<table id="contest_table">
+			<thead>
+			<tr>
+				<th>Contest</th>
+				<th>Rank</th>
+				<th>Old rating</th>
+				<th>New rating</th>
+			</tr>
+			</thead>
+			<tbody>
+			<% @cfacc.contests.each do |contest| %>
+			<tr>
+				<td> 	<%= contest[:contestName] 	%>	</td>
+				<td>	<%= contest[:rank] 		%>	</td>
+				<td>	<%= contest[:oldRating]	%>	</td>
+				<td>	<%= contest[:newRating]	%>	</td>
+			</tr>
+			<% end %>
+			</tbody>
+	</table>
+
+	<h2>Numbers of submissions: <%= @cfacc.submissions.length	%>	</h2>
+	<table id="submissions_table">
+			<thead>
+			<tr>
+				<th>Submission ID</th>
+				<th>Contest ID</th>
+				<th>Index</th>
+				<th>Problems name</th>
+				<th>Problems rating</th>
+				<th>Numbers acceptions</th>
+				<th>Numbers wrongs</th>
+			</tr>
+			</thead>
+			<tbody>
+			<% @cfacc.submissions.each do |sub| %>
+			<tr>
+				<td> 	<%= sub[:sub_id]	%>	</td>
+				<td> 	<%= sub[:contestId]	%>	</td>
+				<td> 	<%= sub[:prob_index]	%>	</td>
+				<td> 	<%= sub[:prob_name]	%>	</td>
+				<td> 	<%= sub[:prob_rating]	%>	</td>
+				<td> 	<%= sub[:subaccs]	%>	</td>
+				<td> 	<%= sub[:subwrongs]	%>	</td>
+				
+			</tr>
+			<% end %>
+			</tbody>
+	</table>
+
+
+
+	<%= javascript_include_tag('chart_accs_wrogs.js') %>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<%= javascript_include_tag('circle_chart_google.js') %>
+	<%= javascript_include_tag('show_color_rate.js') %>
+
+</body>
+</html>

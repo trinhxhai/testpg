@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sub_id: MyString
+  timestamp: 1
+  b_acc: false
+  tags: MyString
+  rating: 1
+  cfacc: one
+
+two:
+  sub_id: MyString
+  timestamp: 1
+  b_acc: false
+  tags: MyString
+  rating: 1
+  cfacc: two

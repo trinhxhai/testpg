@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sub_id: MyString
+  contestId: MyString
+  prob_index: MyString
+  prob_name: MyString
+  prob_rating: 1
+  subaccs: 1
+  subwrongs: 1
+  cfacc: one
+
+two:
+  sub_id: MyString
+  contestId: MyString
+  prob_index: MyString
+  prob_name: MyString
+  prob_rating: 1
+  subaccs: 1
+  subwrongs: 1
+  cfacc: two

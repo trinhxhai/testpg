@@ -1,0 +1,97 @@
+
+
+/* RULER */
+.chart_ruler{
+    position: relative;
+    background-color: #ccd1d9;
+    width: 5vw;
+    height: 300px;
+}
+.chart_ruler span{
+    position: absolute;
+}
+
+
+/* EXLPLAIN */
+
+
+
+#explain_chart{
+    
+    position: absolute;
+    top: -100px;
+    right:0;   
+}
+
+#explain_chart #explain_acpt{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #68e36f;
+}
+#explain_chart #explain_wrong{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #f26d5e;
+}
+
+
+/* RULER */
+
+
+#chart_accs_wrongs {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: 200px 10px 200px 10px;
+}
+
+.ydiv {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    height: 300px;
+    align-content: space-around;
+}
+
+.mdiv {
+    position: relative;
+    border: 1px solid pink;
+    width: 3vw;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.daccs {
+    background-color: #68e36f;
+}
+
+.dwrongs {
+    background-color: #f26d5e;
+}
+
+.daccs , .dwrongs {
+    display: inline-block;
+    width: 1vw;
+    top:0;
+}
+.daccs:hover, .dwrongs:hover{
+    cursor: pointer;
+}
+.numyear{
+    font-size: 25px;
+    bottom: -70px;
+    left: -40px;
+    position: absolute;
+}
+.numMonth{
+    bottom: -30px;
+    left:50%;
+    position: absolute;
+}
+

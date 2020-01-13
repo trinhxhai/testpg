@@ -1,26 +1,45 @@
+<%= stylesheet_link_tag "index.css" %>
+
+<%= content_tag :div , class: "analy_info", data: {temp: @cfaccs.length} do %>
+<% end %>
 
 
-<%= link_to 'New user', new_cfacc_path %>
 
 
-<h1>Listing User</h1>
- 
-<table>
+<nav id="op">
+  <%= link_to image_tag("new_user_icon2.svg" ,border: 0), new_cfacc_path ,id: "new_user"  %>
+  <%= link_to image_tag("reload.png" ,border: 0) , {action: 'load',controller: 'cfaccs'} ,{id: "reload"} %>
+</nav>
+<%=  %>
+<div id="header">
+  <h1>Ranking  Table</h1>
+</div>
+
+<table id="ranking_table">
   <tr>
     <th>Username</th>
     <th>Realname</th>
-    <th></th>
+    <th id="sort_by_rating" onclick="sort_by_rating()">Rating</th>
+    <th>Rank</th>
+    <th id="sort_by_subs" onclick="sort_by_subs()">Accs/Prob</th>
   </tr>
  
   <% @cfaccs.each do |acc| %>
     <tr>
-      <td><%= acc.username %></td>
+      <td><%= link_to acc.username, cfacc_path(acc) %> </td>
       <td><%= acc.realname %></td>
-      <td><%= link_to 'Show', cfacc_path(acc) %></td>
-      <td><%= link_to 'Edit', edit_cfacc_path(acc) %></td>
-      <td><%= link_to 'Destroy', cfacc_path(acc),
+      <td><b><%= acc.rating %></b></td>
+      <td><b><%= acc.rank %></b></td>
+      <td><b><%= @cnt_acpt_hash[acc[:id]].to_s + '/' + acc.submissions.length.to_s %></b></td>
+      <td id="acc_link">
+        <%= link_to 'Edit', edit_cfacc_path(acc) %> 
+        <%= link_to 'Destroy', cfacc_path(acc),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+              data: { confirm: 'Are you sure?' } %> 
+      </td>
+      
     </tr>
   <% end %>
 </table>
+<%= javascript_include_tag('sort_rank.js') %>
+<%= javascript_include_tag('coloring_rank.js') %>

@@ -1,0 +1,36 @@
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - '2020-01-12 17:55:52.445033'
+    - '2020-01-12 17:55:52.445033'
+
+---
+cfaccs:
+  columns:
+  - id
+  - username
+  - realname
+  - rating
+  - m_rating
+  - rank
+  - m_rank
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - txhai12
+    - ''
+    - 
+    - 
+    - 
+    - 
+    - '2020-01-12 17:56:14.113842'
+    - '2020-01-12 17:56:14.113842'

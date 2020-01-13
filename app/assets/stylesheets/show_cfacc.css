@@ -1,0 +1,127 @@
+/*RIGHT BAR*/
+
+#right_bar{
+	position: fixed;
+	top:0;
+	right: 1vw;
+	display: flex;
+	flex-direction: column;
+	}
+#right_bar a{
+	text-decoration: none;
+}
+
+
+#linkto_ranktable img{
+	width: 5vw;
+	margin:0;
+}
+#linkto_edit{
+	position: absolute;
+	right: 1vw;
+}
+#linkto_edit img{
+	width: 5vw;
+}
+
+/*USER INFO*/
+
+#user_info{
+	position: relative;
+	display: flex;
+	height: 40vh;
+	border: 1px solid black;
+	padding: 1vh 1vw;
+	align-items: flex-start;
+}
+#user_img{
+	width:15vw;
+	margin :2vh 0 0 2vw;	
+}
+#user_content{
+	font-size: 21px;
+	margin :3vh 0 0 3vw;	
+}
+
+/* TABLE */
+
+
+#contest_table{
+    border: solid 1px #DDEEEE;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: normal 15px Arial, sans-serif;
+}
+#contest_table thead th {
+    background-color: #DDEFEF;
+    border: solid 1px #DDEEEE;
+    color: #336B6B;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+}
+#contest_table tbody td {
+    border: solid 1px #DDEEEE;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+
+#submissions_table{
+    border: solid 1px #DDEEEE;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: normal 15px Arial, sans-serif;
+}
+#submissions_table thead th {
+    background-color: #DDEFEF;
+    border: solid 1px #DDEEEE;
+    color: #336B6B;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+}
+#submissions_table tbody td {
+    border: solid 1px #DDEEEE;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+
+
+
+/* setup tooltips */
+.tooltip {
+  position: relative;
+}
+.tooltip:before,
+.tooltip:after {
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:before {
+  background: rgba(0,0,0,.75);
+  border-radius: 2px;
+  color: #fff;
+  content: attr(data-title);
+  font-size: 14px;
+  padding: 10px 10px;
+    top: -45px;
+  white-space: nowrap;
+}
+/* expand */
+.tooltip.expand:before {
+  transform: scale3d(.2,.2,1);
+  transition: all .2s ease-in-out;
+}
+
+.tooltip.expand:hover:before {
+  opacity: 1;
+  transform: scale3d(1,1,1);
+}

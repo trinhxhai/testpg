@@ -1,2 +1,9 @@
+//= require_tree .
 //= link_tree ../images
 //= link_directory ../stylesheets .css
+//= link_directory ../stylesheets
+//= link sort_rank.js
+//= link coloring_rank.js
+//= link chart_accs_wrogs
+//= link circle_chart_google.js
+//= link show_color_rate.js
