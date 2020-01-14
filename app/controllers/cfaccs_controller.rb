@@ -46,8 +46,8 @@ class CfaccsController < ApplicationController
 	def show
 		@cfacc = Cfacc.find(params[:id])
 		@analy_aw = analy_accs_wrongs @cfacc.analies
-		@analy_tags = analu_tags @cfacc.analies
-		@maxRatingProb = maxRatingProb @cfacc.submissions
+		#@analy_tags = analu_tags @cfacc.analies
+		#@maxRatingProb = maxRatingProb @cfacc.submissions
 		
 	end
 	def edit
