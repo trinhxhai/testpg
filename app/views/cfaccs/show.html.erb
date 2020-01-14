@@ -34,8 +34,19 @@
 		<a href="#submissions_table">Subs</a>
 		<a href="#user_info">Top</a>
 	</div>
-
-<h1><%= @analy_aw.inspect %></h1>
+	<h1> <%= @analy_aw.inspect %></h1>
+	<% @analy_aw.each do |year,months| %>
+		<%= content_tag :div, class: "analy_information_year", data: {temp: year} do %>
+			<% months.each do |month,val| %>
+					<%= content_tag :div, class: "analy_information_month", data: {temp: month} do %>
+						<%= content_tag :div, class: "analy_info_accs_wrongs", data: {temp: val[0]} do %>
+						<% end %>
+						<%= content_tag :div, class: "analy_info_accs_wrongs", data: {temp: val[1]} do %>
+						<% end %>
+					<% end %>
+			<% end %>
+		<% end %>
+	<% end %>
 	
 
 
