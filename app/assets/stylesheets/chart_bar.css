@@ -58,7 +58,7 @@
 .mdiv {
     position: relative;
     border: 1px solid pink;
-    width: 3vw;
+    width: 2vw;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
@@ -75,7 +75,7 @@
 
 .daccs , .dwrongs {
     display: inline-block;
-    width: 1.5vw;
+    width: 1vw;
     top:0;
 }
 .daccs:hover, .dwrongs:hover{
