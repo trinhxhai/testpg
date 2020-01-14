@@ -34,7 +34,7 @@
 		<a href="#submissions_table">Subs</a>
 		<a href="#user_info">Top</a>
 	</div>
-	<h1> <%= @analy_aw.inspect %></h1>
+
 	<% @analy_aw.each do |year,months| %>
 		<%= content_tag :div, class: "analy_information_year", data: {temp: year} do %>
 			<% months.each do |month,val| %>
@@ -48,6 +48,13 @@
 		<% end %>
 	<% end %>
 	
+	<div id="chart_accs_wrongs">
+		<div id="explain_chart">
+		Accepted:<div id= "explain_acpt"></div>
+		<br>
+		Wrongs: <div id= "explain_wrong"></div>
+	</div>
+	</div>
 
 
 	
