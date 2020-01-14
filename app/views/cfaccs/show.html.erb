@@ -56,8 +56,16 @@
 	</div>
 	</div>
 
+	<%= content_tag :div, class: "analy_tags", data: {temp: tag} do %>
+	<% @analy_tags.each do |tag,times| %>
+		<%= content_tag :div, class: "analy_tag_name", data: {temp: tag} do %>
+			<%= content_tag :div, class: "analy_tag_times", data: {temp: times} do %>
+			<% end %>
+		<% end %>
+	<% end %>
+	<% end %>
 
-	
+	<div id="piechart"></div>
 
 	<table id="contest_table">
 			<thead>
@@ -112,7 +120,9 @@
 
 
 	<%= javascript_include_tag('chart_accs_wrogs.js') %>
-
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<%= javascript_include_tag('circle_chart_google.js') %>
+	<%= javascript_include_tag('show_color_rate.js') %>
 
 </body>
 </html>

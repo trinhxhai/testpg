@@ -38,7 +38,9 @@ class CfaccsController < ApplicationController
 
 				taking_contest @cfacc[:id]
 				taking_submission @cfacc[:id]
+
 				redirect_to @cfacc
+				#render ''
 			end
 		end
 
@@ -46,8 +48,8 @@ class CfaccsController < ApplicationController
 	def show
 		@cfacc = Cfacc.find(params[:id])
 		@analy_aw = analy_accs_wrongs @cfacc.analies
-		#@analy_tags = analu_tags @cfacc.analies
-		#@maxRatingProb = maxRatingProb @cfacc.submissions
+		@analy_tags = analu_tags @cfacc.analies
+		@maxRatingProb = maxRatingProb @cfacc.submissions
 		
 	end
 	def edit
@@ -261,6 +263,13 @@ class CfaccsController < ApplicationController
 					end
 				end
 			end
+
+			#sort
+			res.each do |key_y,val_y|
+				res[key_y] = res[key_y].sort_by{|k,v| k}
+			end
+			res = res.sort_by{|k,v| k}
+
 			return res
 
 		end
