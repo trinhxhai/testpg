@@ -1,3 +1,5 @@
+
+
     var chart = document.getElementById('chart_accs_wrongs');
     var ruler = document.createElement('div');
     ruler.classList.add('chart_ruler');
@@ -14,9 +16,9 @@
 
 
     chart.appendChild(ruler);
-
+    var b_first_time = true;
      var list_year = document.getElementsByClassName("analy_information_year");
-     for (var y = list_year.length - 1; y >= 0; y--) {
+     for (var y = 0; y <list_year.length; y++) {
        console.log(list_year[y].getAttribute('data-temp'));
         var year = list_year[y]; 
          list_month = year.getElementsByClassName('analy_information_month');

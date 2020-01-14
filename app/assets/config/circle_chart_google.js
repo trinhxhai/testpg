@@ -18,7 +18,7 @@ function drawChart() {
   var data = google.visualization.arrayToDataTable(arr);
 
   // Optional; add a title and set the width and height of the chart
-  var options = {'title':'Tags', 'width':650, 'height':500};
+  var options = {'title':'Tags', 'width':850, 'height':700};
 
   // Display the chart inside the <div> element with id="piechart"
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
