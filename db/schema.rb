@@ -10,9 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_12_181933) do
+ActiveRecord::Schema.define(version: 2020_01_13_160327) do
 
-  create_table "analies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "analies", force: :cascade do |t|
     t.string "sub_id"
     t.integer "timestamp"
     t.boolean "b_acc"
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_01_12_181933) do
     t.index ["cfacc_id"], name: "index_analies_on_cfacc_id"
   end
 
-  create_table "cfaccs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "cfaccs", force: :cascade do |t|
     t.string "username"
     t.string "realname"
     t.integer "rating"
@@ -35,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_01_12_181933) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "contests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "contests", force: :cascade do |t|
     t.string "contestId"
     t.string "contestName"
     t.integer "rank"
@@ -47,7 +50,14 @@ ActiveRecord::Schema.define(version: 2020_01_12_181933) do
     t.index ["cfacc_id"], name: "index_contests_on_cfacc_id"
   end
 
-  create_table "submissions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "images", force: :cascade do |t|
+    t.bigint "cfacc_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cfacc_id"], name: "index_images_on_cfacc_id"
+  end
+
+  create_table "submissions", force: :cascade do |t|
     t.string "sub_id"
     t.string "contestId"
     t.string "prob_index"
@@ -63,5 +73,6 @@ ActiveRecord::Schema.define(version: 2020_01_12_181933) do
 
   add_foreign_key "analies", "cfaccs"
   add_foreign_key "contests", "cfaccs"
+  add_foreign_key "images", "cfaccs"
   add_foreign_key "submissions", "cfaccs"
 end
