@@ -1,5 +1,5 @@
 class CfaccsController < ApplicationController
-	http_basic_authenticate_with name: "trinhxhai", password: "sn1892000", except: [:index, :show,:create]
+	http_basic_authenticate_with name: "trinhxhai", password: "sn1892000", except: [:index, :show,:load]
 	require 'date'
 	def index
 		@cfaccs = Cfacc.all
@@ -245,7 +245,7 @@ class CfaccsController < ApplicationController
 			end
 
 			submissions.each do |sub|
-				
+
 				if last_sub_id != nil
 					if sub["id"].to_i==last_sub_id
 						break
@@ -338,6 +338,7 @@ class CfaccsController < ApplicationController
 		end
 		def analu_tags analies
 			res = {}
+
 			analies.each do |sub| 
 
 				if sub[:b_acc] 
@@ -351,6 +352,10 @@ class CfaccsController < ApplicationController
 						end
 				end  
 			end
+
+
+
+
 
 			return res	
 		end
